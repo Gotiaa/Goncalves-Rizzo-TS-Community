@@ -30,6 +30,11 @@ export class UserService {
     });
   }
 
+  async isNotAvaible(username : string):Promise<Boolean>{    
+    return await this.queries.exists(username)
+  }
+
+
   async fetchInfo(): Promise<void> {
     const user = await this.queries.getUserInfo();
     this.store.mutate(s => {
