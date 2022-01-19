@@ -30,6 +30,7 @@ export class RoomCreateModalComponent implements OnInit {
   async onOk() {
     if (this.form.form.valid) {
       // TODO invoquer la méthode create du RoomService
+      this.roomService.create(this.model.name, this.model.type);
       this.close();
     }
   }
