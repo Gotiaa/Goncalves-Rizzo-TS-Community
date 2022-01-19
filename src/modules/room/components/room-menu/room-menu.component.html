@@ -11,6 +11,9 @@
   <div class="menu-item" *ngFor="let room of rooms" [ngClass]="{'selected': (roomId$ | async) === '[room.id]'}" (click)='goToRoom(room)'>
     <p>{{room.name}}</p>
   </div>
+  <div class="menu-item" *ngFor="let room of (rooms$|async)" [ngClass]="{'selected': (roomId$ | async) === '[room.id]'}" (click)='goToRoom(room)'>
+    <p>{{room.name}}</p>
+  </div>
 
 </div>
 <app-room-create-modal #modal></app-room-create-modal>
