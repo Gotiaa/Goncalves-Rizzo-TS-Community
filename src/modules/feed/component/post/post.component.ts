@@ -19,6 +19,9 @@ export class PostComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.post.createdBy.photoUrl);
+    
+    // console.log(this.postService.create(this.post.roomId, this.post.message.text.content));
   }
 
   ngAfterViewInit() {
@@ -27,5 +30,6 @@ export class PostComponent implements OnInit, AfterViewInit {
 
   async like() {
     // TODO like du post
+    this.postService.like(this.post);
   }
 }
