@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { DateTime } from 'luxon';
 import { Post } from '../../post.model';
 import { PostService } from '../../services/post.service';
 
@@ -19,9 +20,6 @@ export class PostComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.post.createdBy.photoUrl);
-    
-    // console.log(this.postService.create(this.post.roomId, this.post.message.text.content));
   }
 
   ngAfterViewInit() {
@@ -31,5 +29,6 @@ export class PostComponent implements OnInit, AfterViewInit {
   async like() {
     // TODO like du post
     this.postService.like(this.post);
+    this.post.liked = !this.post.liked;
   }
 }

@@ -35,7 +35,6 @@ export class RoomMenuComponent implements OnInit {
 
     if(this.lastRoom != null){
       this.goToRoomByID(this.lastRoom);
-      console.log(`L'id enregistré est : ${localStorage.getItem(LASTROOM)}`);
     }else if(this.feedStore.value.roomId != null){
       this.goToRoomByID("default")
     }
@@ -43,7 +42,6 @@ export class RoomMenuComponent implements OnInit {
 
   goToRoom(room: Room) {
     // TODO naviguer vers app/[id de la room]
-    console.log(`Navigate to : ${room.id}`)
     this.router.navigate([`/app/${room.id}`]);
     localStorage.setItem(LASTROOM, room.id);
   }

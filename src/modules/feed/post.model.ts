@@ -43,12 +43,18 @@ export interface MessageMediaElement<T extends string> {
 }
 
 export interface MessageImageElement extends MessageMediaElement<'image'> {
+    type: 'image';
+    url: string;
 }
 
 export interface MessageVideoElement extends MessageMediaElement<'video'> {
+    type: 'video';
+    url: string;
 }
 
 export interface MessageAudioElement extends MessageMediaElement<'audio'> {
+    type: 'audio';
+    url: string;
 }
 
 export type MessageElement =
