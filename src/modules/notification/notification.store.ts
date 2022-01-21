@@ -18,6 +18,7 @@ export class NotificationStore extends Store<NotificationState> {
     this.hasUnread$ = this.value$.pipe(map(state => {
       return state.notifications.some(notif => !notif.viewedAt)
     }))
+
   }
 
   prependNotification(...notifications: AnyNotification[]) {
