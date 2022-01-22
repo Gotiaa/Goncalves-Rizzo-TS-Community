@@ -39,6 +39,7 @@ export class UserWidgetComponent implements OnInit {
 
   fireToggleNotificaions() {
       this.toggleNotifications.emit();
+      this.router.navigate
   }
 
   logout() {
