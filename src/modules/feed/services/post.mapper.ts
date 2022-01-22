@@ -10,10 +10,10 @@ export class PostMapper {
 
   private parseMessage(message: string): PostMessage {
     // TODO rajouter png jpg et gif
-    const pictureRegex = /http[s]?:\/\/.+\.(jpeg|jpg)/gmi;
+    const pictureRegex = /http[s]?:\/\/.+\.(jpeg|jpg|gif|webp)/gmi;
 
      // TODO mp4,wmv,flv,avi,wav
-    const videoRegex = /http[s]?:\/\/.+\.(mp4|wmv|flv|avi|wav)/gmi;
+    const videoRegex = /http[s]?:\/\/.+\.(mp4|wmv|flv|avi|wav|webm)/gmi;
 
      // TODO mp3,ogg,wav
     const audioRegex = /http[s]?:\/\/.+\.(mp3|ogg)/gmi;

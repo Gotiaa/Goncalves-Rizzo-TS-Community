@@ -148,13 +148,13 @@ export class FeedInputComponent {
    */
   fireMessageSent() {
     // TODO émettre l'évènement "messageSent"
-    const paylod: MessageSentEventPayload = {
+    const payload: MessageSentEventPayload = {
       date: new Date(),
       message: this.message,
       file : this.file || undefined
     };
 
-    this.messageSent.emit(paylod);
+    this.messageSent.emit(payload);
   }
 
   /**

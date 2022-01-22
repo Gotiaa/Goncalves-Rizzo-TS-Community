@@ -16,10 +16,12 @@ export interface PostBase {
  */
 export interface PostData extends PostBase {
     message: string;
+    file?: File;
 }
 
 export interface Post extends PostBase {
     message: PostMessage;
+    file?: File;
 }
 
 export interface PostMessage {

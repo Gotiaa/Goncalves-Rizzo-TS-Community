@@ -22,6 +22,10 @@ export class PostComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
+  get date() {
+    return DateTime.fromISO(this.post.createdAt).setLocale("fr").toFormat("DDDD TT");
+  }
+
   ngAfterViewInit() {
     this.anchor.nativeElement.scrollIntoView();
   }
