@@ -1,8 +1,8 @@
 <div class="app-layout">
   <div class="panel-drawer" [ngClass]="{opened: showDrawer}">
     <!-- Afficher la liste des notifications -->
-    <div *ngFor="let notification of (notifications$|async)">
-      <p>{{notification.subject}}</p>
+    <div *ngFor="let notification of notifications">
+      <p>{{notification}}</p>
     </div>
   </div>
   <div class="app-layout-panel-left">

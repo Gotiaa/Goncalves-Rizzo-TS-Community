@@ -14,6 +14,7 @@ import { NotificationStore } from 'src/modules/notification/notification.store'
 export class AppLayoutComponent implements OnInit, OnDestroy {
   sub?: Subscription;
   notifications$ : Observable<AnyNotification[]>;
+  notifications : string[];
   showDrawer: boolean = false;
   constructor(private socket: WebsocketConnection, private authStore: AuthenticationStore, private notificationStore : NotificationStore) {
   }
@@ -29,10 +30,7 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
     this.notifications$ = this.notificationStore.get(s => s.notifications);
     this.notifications$.subscribe({
       next : element => {
-        console.log("Nouvelle notification détectée");
-        element.forEach(notif =>
-            console.log(notif.payload.user.username + " added a room")
-          )
+        this.refreshNotifList(element);
       }
     })
   }
@@ -45,4 +43,27 @@ export class AppLayoutComponent implements OnInit, OnDestroy {
   onToggleNotifications() {
       this.showDrawer = !this.showDrawer;
   }
+
+  refreshNotifList(element : AnyNotification[]){
+    let tmpStr : string;
+    this.notifications = [];
+    element.forEach(notif => {
+      switch(notif.subject){
+        case 'post_liked' : {
+          tmpStr = notif.payload.user.username + " a liké un post.";
+          break;
+        }
+        case 'room_added' : {
+          tmpStr = "La room " + notif.payload.room.name + " a été crée.";
+          break;
+        }
+        case 'new_user' : {
+          tmpStr = notif.payload.user.username + " a rejoins la room";
+          break;
+        }
+      }
+      this.notifications.push(tmpStr);
+    })
+  }
+
 }
